@@ -16,6 +16,11 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        avatar:{
+            type: String,
+            default: "https://lh3.googleusercontent.com/a/ACg8ocIL_rorvwI3oTOocaAwgznGmHbCFFAQq3m4R377KXLr=s96-c"
+
+        }
     }, {timestamps: true} //timestamp automatically tracks the creation and updation of the user and it help us while sorting the user information.
 );
 
