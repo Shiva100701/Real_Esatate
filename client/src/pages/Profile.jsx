@@ -7,7 +7,7 @@ import { app } from '../firebase';
 function Profile() {
   const filereF = useRef(null)
   const {currentUser} = useSelector(state=> state.user)
-  const [file, setFile] = useState(undefined)
+  const [file, setFile] = useState(undefined) //to save file we have used file, setFile
   const [filePer, setFilePer] = useState(0);
   const [fileUploadError, setFileUploadError] = useState(false)
   const [formData, setFormData]= useState({})
