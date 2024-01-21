@@ -1,12 +1,12 @@
-import React from "react";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { app } from "../firebase";
 import { useDispatch } from "react-redux";
-import { signInSuccess } from "../Redux/user/userSlice";
+import { signInSuccess } from "../redux/user/userSlice";
 import { useNavigate } from "react-router-dom";
-function Oauth() {
+
+export default function OAuth() {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleGoogleClick = async () => {
     try {
       const provider = new GoogleAuthProvider();
@@ -27,21 +27,18 @@ function Oauth() {
       });
       const data = await res.json();
       dispatch(signInSuccess(data));
-      navigate('/')
+      navigate("/");
     } catch (error) {
-      console.log("Could not sign in", error);
+      console.log("could not sign in with google", error);
     }
   };
-
   return (
     <button
       onClick={handleGoogleClick}
       type="button"
-      className="bg-red-700 text-white p-3 rounded-lg uppercase hover: opacity-95b"
+      className="bg-red-700 text-white p-3 rounded-lg uppercase hover:opacity-95"
     >
-      continue with goggle
+      Continue with google
     </button>
   );
 }
-
-export default Oauth;
